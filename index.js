@@ -1,19 +1,11 @@
 
 
-        if (error) {
-            return errorResponse(
-                res, 
-                'Validation error', 
-                400, 
-                error.details.map(item => ({
-                    field: item.path.join('.'),
-                    message: item.message,
-                }))
-            )
-        }
+// METHOD GET (Mendapatkan semua data)
+app.get('/biodata', async (req, res) => {
+    const result = await pool.query(
+        'SELECT * FROM biodata ORDER BY id'
+    )
 
-        req.body = value
-        next()
-    }
-}
+    return successResponse(res, 'Data berhasil diambil', result.rows)
+})
 
