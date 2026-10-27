@@ -1,5 +1,7 @@
 
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+// MIDDLEWARE
+app.use((req, res, next) => {
+    const start = Date.now()
 
+   
