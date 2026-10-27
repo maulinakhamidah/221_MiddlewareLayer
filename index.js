@@ -1,6 +1,11 @@
+ 
 
+        console.log({
+            method: req.method,
+            url: req.originalUrl,
+            status: res.statusCode,
+            duration: `${duration}ms`
+        })
+    })
 
-    res.on('finish', () => {
-        const duration = Date.now() - start 
-
-    
+  
