@@ -1,12 +1,12 @@
 
 
-// RESPONSE ENVELOPE 
-function successResponse(res, message, data = null, status = 200) {
+// RESPONSE ENVELOPE (ERROR)
+function errorResponse(res, message, status = 500, error = null) {
     return res.status(status).json({
-        success: true,
+        success: false,
         message,
-        data,
-        error: null,
+        data: null,
+        error,
     })
 }
 
