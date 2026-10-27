@@ -1,6 +1,12 @@
 
 
-const idSchema = joi.object({
-    id: joi.number().integer().positive().required()
-})
+// MIDDLEWARE VALIDATION BODY
+function validateBody(schema) {
+    return (req, res, next) => {
+        const { value, error } = schema.validate(req.body, { 
+            abortEarly: false,
+            convert: true,
+            allowUnknown: false,
+        })
 
+      
